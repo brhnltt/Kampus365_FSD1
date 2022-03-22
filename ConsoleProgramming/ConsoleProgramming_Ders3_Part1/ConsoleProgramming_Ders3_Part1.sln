@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleProgramming_Ders3_Part1", "ConsoleProgramming_Ders3_Part1\ConsoleProgramming_Ders3_Part1.csproj", "{297AC6A3-2E35-41FE-B22A-BB5F06C194B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{297AC6A3-2E35-41FE-B22A-BB5F06C194B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297AC6A3-2E35-41FE-B22A-BB5F06C194B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297AC6A3-2E35-41FE-B22A-BB5F06C194B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297AC6A3-2E35-41FE-B22A-BB5F06C194B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E8108C4-819C-4CB0-88FC-20726AE763B3}
+	EndGlobalSection
+EndGlobal
