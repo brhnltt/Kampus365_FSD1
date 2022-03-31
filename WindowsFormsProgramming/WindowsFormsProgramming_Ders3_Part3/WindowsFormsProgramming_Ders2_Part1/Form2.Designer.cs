@@ -142,6 +142,7 @@
             this.txtNot.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtNot.Size = new System.Drawing.Size(390, 61);
             this.txtNot.TabIndex = 20;
+            this.txtNot.Enter += new System.EventHandler(this.txtNot_Enter);
             // 
             // flowLayoutPanel1
             // 
@@ -242,6 +243,7 @@
             this.txtEPosta.PlaceholderText = "john@doe.com";
             this.txtEPosta.Size = new System.Drawing.Size(390, 23);
             this.txtEPosta.TabIndex = 15;
+            this.txtEPosta.Enter += new System.EventHandler(this.txtEPosta_Enter);
             // 
             // label3
             // 
@@ -261,6 +263,7 @@
             this.mtxtTelefon.Name = "mtxtTelefon";
             this.mtxtTelefon.Size = new System.Drawing.Size(390, 23);
             this.mtxtTelefon.TabIndex = 13;
+            this.mtxtTelefon.Enter += new System.EventHandler(this.mtxtTelefon_Enter);
             // 
             // label2
             // 
@@ -281,6 +284,7 @@
             this.txtAdSoyad.PlaceholderText = "John Doe";
             this.txtAdSoyad.Size = new System.Drawing.Size(390, 23);
             this.txtAdSoyad.TabIndex = 4;
+            this.txtAdSoyad.Enter += new System.EventHandler(this.txtAdSoyad_Enter);
             // 
             // label1
             // 
@@ -328,6 +332,7 @@
             this.btnCut.Name = "btnCut";
             this.btnCut.Size = new System.Drawing.Size(23, 22);
             this.btnCut.Text = "C&ut";
+            this.btnCut.Click += new System.EventHandler(this.btnCut_Click);
             // 
             // btnCopy
             // 
@@ -337,6 +342,7 @@
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(23, 22);
             this.btnCopy.Text = "&Copy";
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // btnPaste
             // 
@@ -346,6 +352,7 @@
             this.btnPaste.Name = "btnPaste";
             this.btnPaste.Size = new System.Drawing.Size(23, 22);
             this.btnPaste.Text = "&Paste";
+            this.btnPaste.Click += new System.EventHandler(this.btnPaste_Click);
             // 
             // Form2
             // 

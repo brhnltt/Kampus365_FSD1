@@ -14,6 +14,7 @@ namespace WindowsFormsProgramming_Ders2_Part1
     public partial class Form2 : Form
     {
         List<string> liste = new List<string>();
+        TextBoxBase lastTextbox = null;
 
         public Form2()
         {
@@ -101,7 +102,6 @@ namespace WindowsFormsProgramming_Ders2_Part1
             {
                 MessageBox.Show("Lütfen listeden bir seçim yapınız.");
             }
-                
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -138,22 +138,73 @@ namespace WindowsFormsProgramming_Ders2_Part1
             //string dosyaYolu = klasorYolu + dosyaAdi;
             string dosyaYolu = Path.Combine(klasorYolu, dosyaAdi);
 
-            FileStream stream = new FileStream(dosyaYolu, FileMode.Open);
-            StreamReader streamReader = new StreamReader(stream);
+            // Directory, File İşlemleri
 
-            while (streamReader.EndOfStream == false)
+            if (File.Exists(dosyaYolu) == true)
             {
-                string deger = streamReader.ReadLine();
-                liste.Add(deger);
+                FileStream stream = new FileStream(dosyaYolu, FileMode.Open);
+                StreamReader streamReader = new StreamReader(stream);
+
+                while (streamReader.EndOfStream == false)
+                {
+                    string deger = streamReader.ReadLine();
+                    liste.Add(deger);
+                }
+
+                streamReader.Close();
+                stream.Close();
             }
-
-            streamReader.Close();
-            stream.Close();
-
 
             // kisiler.txt dosyasını silin ve programı çalıştırın. Alınan hata olursa, nasıl aşarsınız, uygulayın!
             // kes - kopyala- yapıştır düğmelerini Ad Soyad textbox ı için kullanılır hale getirin!
             // kes - kopyala- yapıştır düğmelerinin tüm textbox lar için tek tek yazılarak DEĞİL genel kodlayarak çalışır hale getirin!
+        }
+
+        private void btnCut_Click(object sender, EventArgs e)
+        {
+            //txtAdSoyad.Cut();
+            lastTextbox.Cut();
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            //txtAdSoyad.Copy();
+            lastTextbox.Copy();
+        }
+
+        private void btnPaste_Click(object sender, EventArgs e)
+        {
+            //txtAdSoyad.Paste();
+            lastTextbox.Paste();
+        }
+
+        private void txtAdSoyad_Enter(object sender, EventArgs e)
+        {
+            lastTextbox = txtAdSoyad;
+        }
+
+        private void txtEPosta_Enter(object sender, EventArgs e)
+        {
+            lastTextbox = txtEPosta;
+        }
+
+        private void txtNot_Enter(object sender, EventArgs e)
+        {
+            lastTextbox = txtNot;
+        }
+
+        private void mtxtTelefon_Enter(object sender, EventArgs e)
+        {
+            lastTextbox = mtxtTelefon;
+        }
+
+
+        private void WhatIsStringBuilder()
+        {
+            StringBuilder sb = new StringBuilder(); // "";
+            sb.Append("Murat");                     // "" + "Murat"
+            sb.Append(" ");                         // "" + "Murat" + " "
+            sb.Append("Başeren");                   // "" + "Murat" + " " + "Başeren"
         }
     }
 }
