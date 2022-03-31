@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<Sirket>
+	<Calisan tc="123123">
+		<Ad>Kadir Murat</Ad>
+		<Soyad>Duşeren</Soyad>
+		<Adres pk="123">
+			<il>Ankara</il>
+			<ilce>Pendikasd</ilce>
+		</Adres>
+	</Calisan>
+</Sirket>

@@ -1,0 +1,24 @@
+{
+  "Calisanlar": [
+    {
+      "tc": "123123",
+      "Ad": "Murat",
+      "Soyad": "Duþeren",
+      "Adres": {
+        "pk": "123",
+        "il": "Ankara",
+        "ilce": "Pendik"
+      }
+    },
+    {
+      "tc": "432432",
+      "Ad": "Kadir",
+      "Soyad": "Baþeren",
+      "Adres": {
+        "pk": "321",
+        "il": "Ýstanbul",
+        "ilce": "Kurtköy"
+      }
+    }
+  ]
+}
