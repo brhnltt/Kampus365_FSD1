@@ -114,7 +114,8 @@ namespace AdoNet_Ders1_Part1
 
                 while (reader.Read())
                 {
-                    int catId = (int)reader["CategoryID"];
+                    //int catId = (int)reader["CategoryID"];
+                    int catId = reader.GetInt32("CategoryID");
                     total += catId;
                 }
 
