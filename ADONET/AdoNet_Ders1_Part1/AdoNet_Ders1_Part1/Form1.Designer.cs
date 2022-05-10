@@ -42,6 +42,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnTotalCatExeScalar = new System.Windows.Forms.Button();
             this.btnReadFromStoredProcedure = new System.Windows.Forms.Button();
+            this.btnSqlAdapterVeriCekme = new System.Windows.Forms.Button();
+            this.btnSqlAdapterVeriCekme2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,11 +182,33 @@
             this.btnReadFromStoredProcedure.UseVisualStyleBackColor = true;
             this.btnReadFromStoredProcedure.Click += new System.EventHandler(this.btnReadFromStoredProcedure_Click);
             // 
+            // btnSqlAdapterVeriCekme
+            // 
+            this.btnSqlAdapterVeriCekme.Location = new System.Drawing.Point(12, 217);
+            this.btnSqlAdapterVeriCekme.Name = "btnSqlAdapterVeriCekme";
+            this.btnSqlAdapterVeriCekme.Size = new System.Drawing.Size(220, 23);
+            this.btnSqlAdapterVeriCekme.TabIndex = 17;
+            this.btnSqlAdapterVeriCekme.Text = "SQL Adapter ile Veri Çekme";
+            this.btnSqlAdapterVeriCekme.UseVisualStyleBackColor = true;
+            this.btnSqlAdapterVeriCekme.Click += new System.EventHandler(this.btnSqlAdapterVeriCekme_Click);
+            // 
+            // btnSqlAdapterVeriCekme2
+            // 
+            this.btnSqlAdapterVeriCekme2.Location = new System.Drawing.Point(12, 246);
+            this.btnSqlAdapterVeriCekme2.Name = "btnSqlAdapterVeriCekme2";
+            this.btnSqlAdapterVeriCekme2.Size = new System.Drawing.Size(220, 23);
+            this.btnSqlAdapterVeriCekme2.TabIndex = 18;
+            this.btnSqlAdapterVeriCekme2.Text = "SQL Adapter ile Veri Çekme 2";
+            this.btnSqlAdapterVeriCekme2.UseVisualStyleBackColor = true;
+            this.btnSqlAdapterVeriCekme2.Click += new System.EventHandler(this.btnSqlAdapterVeriCekme2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(891, 621);
+            this.Controls.Add(this.btnSqlAdapterVeriCekme2);
+            this.Controls.Add(this.btnSqlAdapterVeriCekme);
             this.Controls.Add(this.btnReadFromStoredProcedure);
             this.Controls.Add(this.btnTotalCatExeScalar);
             this.Controls.Add(this.label5);
@@ -223,5 +247,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnTotalCatExeScalar;
         private System.Windows.Forms.Button btnReadFromStoredProcedure;
+        private System.Windows.Forms.Button btnSqlAdapterVeriCekme;
+        private System.Windows.Forms.Button btnSqlAdapterVeriCekme2;
     }
 }

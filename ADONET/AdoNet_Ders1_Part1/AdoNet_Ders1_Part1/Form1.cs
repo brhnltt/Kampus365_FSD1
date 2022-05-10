@@ -296,6 +296,46 @@ namespace AdoNet_Ders1_Part1
             }
         }
 
+        private void btnSqlAdapterVeriCekme_Click(object sender, EventArgs e)
+        {
+            // bağlantı sağlayıcı
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(connectionString);
+
+            string query = "SELECT CategoryID, CategoryName FROM Categories ORDER BY CategoryID ASC";
+
+            // sorgu çalıştırıcı.
+            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
+            System.Data.SqlClient.SqlDataAdapter adapter = new System.Data.SqlClient.SqlDataAdapter(command);
+
+            try
+            {
+                System.Data.DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu.");
+                MessageBox.Show($"Hata Mesajı : {ex.Message}");
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed && connection.State != ConnectionState.Broken)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void btnSqlAdapterVeriCekme2_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT CategoryID, CategoryName FROM Categories ORDER BY CategoryID ASC";
+            DataTable dt = ExecuteReader(query);
+            dataGridView1.DataSource = dt;
+        }
+
+
         private int Execute(string query)
         {
             // bağlantı sağlayıcı
@@ -368,6 +408,36 @@ namespace AdoNet_Ders1_Part1
             }
         }
 
+        private DataTable ExecuteReader(string query)
+        {
+            // bağlantı sağlayıcı
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(connectionString);
 
+            // sorgu çalıştırıcı.
+            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
+            System.Data.SqlClient.SqlDataAdapter adapter = new System.Data.SqlClient.SqlDataAdapter(command);
+
+            System.Data.DataTable dt = null;
+
+            try
+            {
+                dt = new DataTable();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu.");
+                MessageBox.Show($"Hata Mesajı : {ex.Message}");
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed && connection.State != ConnectionState.Broken)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
     }
 }
