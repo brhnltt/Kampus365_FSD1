@@ -241,6 +241,61 @@ namespace AdoNet_Ders1_Part1
             MessageBox.Show($"Total Cat Id : {result}");
         }
 
+        private void btnReadFromStoredProcedure_Click(object sender, EventArgs e)
+        {
+            // bağlantı sağlayıcı
+            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(connectionString);
+
+            string query = "[Sales by Year]";
+
+            // sorgu çalıştırıcı.
+            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@Beginning_Date", new DateTime(1996, 1, 1));
+            command.Parameters.AddWithValue("@Ending_Date", new DateTime(2000, 12, 31));
+
+            try
+            {
+                connection.Open();
+
+                System.Data.SqlClient.SqlDataReader reader = command.ExecuteReader();
+                System.Data.DataTable dt = new DataTable();
+
+                dt.Columns.Add("OrderID", typeof(int));
+                dt.Columns.Add("SubTotal", typeof(decimal));
+                dt.Columns.Add("Year", typeof(string));
+
+                while (reader.Read())
+                {
+                    int id = (int)reader["OrderID"];
+                    decimal total = (decimal)reader["SubTotal"];
+                    string year = (string)reader["Year"];
+
+                    DataRow row = dt.NewRow();
+                    row["OrderID"] = id;
+                    row["SubTotal"] = total;
+                    row["Year"] = year;
+
+                    dt.Rows.Add(row);
+                }
+
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata oluştu.");
+                MessageBox.Show($"Hata Mesajı : {ex.Message}");
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed && connection.State != ConnectionState.Broken)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
         private int Execute(string query)
         {
             // bağlantı sağlayıcı
@@ -312,5 +367,7 @@ namespace AdoNet_Ders1_Part1
                 return (T)result;
             }
         }
+
+
     }
 }

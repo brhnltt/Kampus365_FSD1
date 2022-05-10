@@ -41,6 +41,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnTotalCatExeScalar = new System.Windows.Forms.Button();
+            this.btnReadFromStoredProcedure = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,11 +170,22 @@
             this.btnTotalCatExeScalar.UseVisualStyleBackColor = true;
             this.btnTotalCatExeScalar.Click += new System.EventHandler(this.btnTotalCatExeScalar_Click);
             // 
+            // btnReadFromStoredProcedure
+            // 
+            this.btnReadFromStoredProcedure.Location = new System.Drawing.Point(12, 188);
+            this.btnReadFromStoredProcedure.Name = "btnReadFromStoredProcedure";
+            this.btnReadFromStoredProcedure.Size = new System.Drawing.Size(220, 23);
+            this.btnReadFromStoredProcedure.TabIndex = 16;
+            this.btnReadFromStoredProcedure.Text = "Read From Stored Procedure";
+            this.btnReadFromStoredProcedure.UseVisualStyleBackColor = true;
+            this.btnReadFromStoredProcedure.Click += new System.EventHandler(this.btnReadFromStoredProcedure_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(891, 621);
+            this.Controls.Add(this.btnReadFromStoredProcedure);
             this.Controls.Add(this.btnTotalCatExeScalar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnDelete);
@@ -210,5 +222,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnTotalCatExeScalar;
+        private System.Windows.Forms.Button btnReadFromStoredProcedure;
     }
 }
