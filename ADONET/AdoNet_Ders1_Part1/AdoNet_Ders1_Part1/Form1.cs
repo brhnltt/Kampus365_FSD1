@@ -137,157 +137,71 @@ namespace AdoNet_Ders1_Part1
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            // bağlantı sağlayıcı
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(connectionString);
-
             string catName = txtInsertCatName.Text;
-            //string query = "INSERT INTO Categories (CategoryName ,Description ,Picture) VALUES ('" + catName + "',NULL,NULL)";
             string query = $"INSERT INTO Categories (CategoryName ,Description ,Picture) VALUES ('{catName}',NULL,NULL)";
 
-            // sorgu çalıştırıcı.
-            //System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
+            // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
+            int result = Execute(query);
 
-            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand();
-            command.CommandText = query;
-            command.CommandType = CommandType.Text;
-            command.Connection = connection;
-
-            try
+            if (result > 0)
             {
-                connection.Open();
-
-                // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
-                int result = command.ExecuteNonQuery();
-
-                if (result > 0)
-                {
-                    MessageBox.Show("Kayıt eklendi.");
-                }
+                MessageBox.Show("Kayıt eklendi.");
+                btnSelect_Click(btnSelect, EventArgs.Empty);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Hata oluştu.");
-                MessageBox.Show($"Hata Mesajı : {ex.Message}");
-            }
-            finally
-            {
-                if (connection.State != ConnectionState.Closed && connection.State != ConnectionState.Broken)
-                {
-                    connection.Close();
-                }
+                MessageBox.Show("Kayıt eklenemedi.");
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            // bağlantı sağlayıcı
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(connectionString);
-
             string catName = txtUpdCatName.Text;
             int catId = (int)nudUpdCatId.Value;
-            //string query = "INSERT INTO Categories (CategoryName ,Description ,Picture) VALUES ('" + catName + "',NULL,NULL)";
+
             string query = $"UPDATE [dbo].[Categories] SET [CategoryName] = '{catName}' WHERE CategoryID = {catId}";
 
-            // sorgu çalıştırıcı.
-            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
+            // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
+            int result = Execute(query);
 
-            try
+            if (result > 0)
             {
-                connection.Open();
-
-                // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
-                int result = command.ExecuteNonQuery();
-
-                if (result > 0)
-                {
-                    MessageBox.Show("İlgili kayıt(lar) güncellendi.");
-                }
+                MessageBox.Show("İlgili kayıt(lar) güncellendi.");
+                btnSelect_Click(btnSelect, EventArgs.Empty);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Hata oluştu.");
-                MessageBox.Show($"Hata Mesajı : {ex.Message}");
-            }
-            finally
-            {
-                if (connection.State != ConnectionState.Closed && connection.State != ConnectionState.Broken)
-                {
-                    connection.Close();
-                }
+                MessageBox.Show("İlgili kayıt(lar) güncellenemedi.");
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // bağlantı sağlayıcı
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(connectionString);
-
             int catId = (int)nudDelCatId.Value;
-            //string query = "INSERT INTO Categories (CategoryName ,Description ,Picture) VALUES ('" + catName + "',NULL,NULL)";
+
             string query = $"DELETE FROM [dbo].[Categories] WHERE CategoryID = {catId}";
 
-            // sorgu çalıştırıcı.
-            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
+            // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
+            int result = Execute(query);
 
-            try
+            if (result > 0)
             {
-                connection.Open();
-
-                // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
-                int result = command.ExecuteNonQuery();
-
-                if (result > 0)
-                {
-                    MessageBox.Show("İlgili kayıt(lar) silindi.");
-                }
+                MessageBox.Show("İlgili kayıt(lar) silindi.");
+                btnSelect_Click(btnSelect, EventArgs.Empty);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Hata oluştu.");
-                MessageBox.Show($"Hata Mesajı : {ex.Message}");
-            }
-            finally
-            {
-                if (connection.State != ConnectionState.Closed && connection.State != ConnectionState.Broken)
-                {
-                    connection.Close();
-                }
+                MessageBox.Show("İlgili kayıt(lar) silinemedi.");
             }
         }
 
         private void btnTotalCatExeScalar_Click(object sender, EventArgs e)
         {
-            // bağlantı sağlayıcı
-            System.Data.SqlClient.SqlConnection connection = new System.Data.SqlClient.SqlConnection(connectionString);
-
-            int catId = (int)nudDelCatId.Value;
-            //string query = "INSERT INTO Categories (CategoryName ,Description ,Picture) VALUES ('" + catName + "',NULL,NULL)";
             string query = $"SELECT SUM(CategoryID) AS Total FROM Categories";
 
-            // sorgu çalıştırıcı.
-            System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
+            int result = ExecuteScalar<int>(query);
 
-            try
-            {
-                connection.Open();
-
-                // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
-                int result = (int)command.ExecuteScalar();
-
-                MessageBox.Show($"Total Cat Id : {result}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Hata oluştu.");
-                MessageBox.Show($"Hata Mesajı : {ex.Message}");
-            }
-            finally
-            {
-                if (connection.State != ConnectionState.Closed && connection.State != ConnectionState.Broken)
-                {
-                    connection.Close();
-                }
-            }
+            MessageBox.Show($"Total Cat Id : {result}");
         }
 
         private int Execute(string query)
