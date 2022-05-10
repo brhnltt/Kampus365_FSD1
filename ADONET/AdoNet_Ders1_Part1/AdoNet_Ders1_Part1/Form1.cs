@@ -157,16 +157,35 @@ namespace AdoNet_Ders1_Part1
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string catName = txtUpdCatName.Text;
-            int catId = (int)nudUpdCatId.Value;
 
-            string query = $"UPDATE [dbo].[Categories] SET [CategoryName] = '{catName}' WHERE CategoryID = {catId}";
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seçili satır yok. Güncelleme için lütfen bir ya da birden çok satır seçiniz.");
+                return;
+            }
 
-            // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
-            int result = Execute(query);
+            //if (dataGridView1.SelectedRows.Count > 1)
+            //{
+            //    MessageBox.Show("Lütfen güncelleme için sadece bir satır seçiniz.");
+            //    return;
+            //}
+
+            int result = 0;
+
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                int catId = (int)row.Cells[0].Value;
+
+                string query = $"UPDATE [dbo].[Categories] SET [CategoryName] = '{catName}' WHERE CategoryID = {catId}";
+
+                // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
+                result += Execute(query);
+            }
 
             if (result > 0)
             {
-                MessageBox.Show("İlgili kayıt(lar) güncellendi.");
+                //MessageBox.Show("İlgili kayıt(lar) güncellendi.");
+                MessageBox.Show($"{result} adet kayıt güncellendi.");
                 btnSelect_Click(btnSelect, EventArgs.Empty);
             }
             else
@@ -177,12 +196,30 @@ namespace AdoNet_Ders1_Part1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int catId = (int)nudDelCatId.Value;
+            int result = 0;
 
-            string query = $"DELETE FROM [dbo].[Categories] WHERE CategoryID = {catId}";
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seçili satır yok. Silmek için lütfen bir ya da birden çok satır seçiniz.");
+                return;
+            }
 
-            // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
-            int result = Execute(query);
+            DialogResult dialogResult = MessageBox.Show("Seçili kayıtları silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
+
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                int catId = (int)row.Cells[0].Value;
+
+                string query = $"DELETE FROM [dbo].[Categories] WHERE CategoryID = {catId}";
+
+                // insert, update, delete ya da bir komut çalıştırma işlemlerinde.. (ExecuteNonQuery)
+                result += Execute(query);
+            }
 
             if (result > 0)
             {
