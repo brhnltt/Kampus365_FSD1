@@ -142,7 +142,7 @@ namespace AdoNet_Ders1_Part1
 
             string catName = txtInsertCatName.Text;
             //string query = "INSERT INTO Categories (CategoryName ,Description ,Picture) VALUES ('" + catName + "',NULL,NULL)";
-            string query = $"INSERT INTO Categories (CategoryName ,Description ,Picture) VALUES ('{catName}',NULL,NULL)";
+            string query = $"INSERT INTO Categories (CategoryName ,Description ,Picture) VALUES (@CatName,NULL,NULL)";
 
             // sorgu çalıştırıcı.
             //System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
@@ -151,6 +151,8 @@ namespace AdoNet_Ders1_Part1
             command.CommandText = query;
             command.CommandType = CommandType.Text;
             command.Connection = connection;
+
+            command.Parameters.AddWithValue("@CatName", catName);
 
             try
             {
@@ -186,10 +188,13 @@ namespace AdoNet_Ders1_Part1
             string catName = txtUpdCatName.Text;
             int catId = (int)nudUpdCatId.Value;
             //string query = "INSERT INTO Categories (CategoryName ,Description ,Picture) VALUES ('" + catName + "',NULL,NULL)";
-            string query = $"UPDATE [dbo].[Categories] SET [CategoryName] = '{catName}' WHERE CategoryID = {catId}";
+            string query = $"UPDATE [dbo].[Categories] SET [CategoryName] = @CatName WHERE CategoryID = @CatId";
 
             // sorgu çalıştırıcı.
             System.Data.SqlClient.SqlCommand command = new System.Data.SqlClient.SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@CatName", catName);
+            command.Parameters.AddWithValue("@CatId", catId);
 
             try
             {
