@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp_Dapper_Ders1_Part1", "WinFormsApp_Dapper_Ders1_Part1\WinFormsApp_Dapper_Ders1_Part1.csproj", "{1EDA03F4-36B2-4DA1-911B-8DEA04BF1F25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1_ChatApp", "WinFormsApp1_ChatApp\WinFormsApp1_ChatApp.csproj", "{B3E2D4FE-54CE-46E4-837A-9B15E1D2A2E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EDA03F4-36B2-4DA1-911B-8DEA04BF1F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EDA03F4-36B2-4DA1-911B-8DEA04BF1F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EDA03F4-36B2-4DA1-911B-8DEA04BF1F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EDA03F4-36B2-4DA1-911B-8DEA04BF1F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E2D4FE-54CE-46E4-837A-9B15E1D2A2E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E2D4FE-54CE-46E4-837A-9B15E1D2A2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E2D4FE-54CE-46E4-837A-9B15E1D2A2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E2D4FE-54CE-46E4-837A-9B15E1D2A2E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92A99192-97AA-4F83-95A6-AD709FF396CD}
+	EndGlobalSection
+EndGlobal
