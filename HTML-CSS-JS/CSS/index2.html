@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>CSS - Cascading Style Sheet</title>
+
+    <style>
+        p {
+            font-size: 24pt;
+            color: red;
+            /* font-weight: bold; */
+            text-decoration: underline;
+            /* font-style: italic; */
+        }
+
+        b {
+            color: blue;
+        }
+
+        #p1 {
+            color: green;
+        }
+
+        .sari-metin {
+            color: rgb(138, 138, 8);
+            margin: 50px;
+        }
+
+        h1,
+        span,
+        #abc,
+        .uyari {
+            font-size: 16pt;
+            /* font-weight: 100; */
+        }
+
+        .box {
+            /* border-width: 2px;
+            border-color:red;
+            border-style: dashed; */
+
+            font-size: 16pt;
+            border: 2px red dashed;
+            /* padding: 15px; */
+            padding-left: 25px;
+            padding-top: 15px;
+            /* border-radius: 20px; */
+            box-shadow: 3px 3px 8px red;
+        }
+
+        .box2 {
+            font-size: 16pt;
+            border: 8px red solid;
+            padding: 10px;
+            width: 300px;
+            height: 100px;
+            /* background-color: rgba(255, 0, 0, 0.548); */
+            background-color: #ff00008a;
+        }
+
+        .bio {
+            border: 3px solid darkgray;
+            padding: 20px;
+            box-shadow: 5px 5px 12px #ddd;
+        }
+
+        .bio div {
+            text-align: justify;
+        }
+
+        .bio .header {
+            font-size: 14pt;
+            color: red;
+            border-bottom: 2px solid darkred;
+            margin-bottom: 10px;
+        }
+
+        .bio .summary {
+            padding: 20px;
+            font-style: italic;
+        }
+
+        .bio .detail .text {
+            font-family: 'Trebuchet MS';
+            font-size: 10pt;
+            color: darkslategray;
+            font-weight: bold;
+            
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- div>h1>{CSS}+hr -->
+    <div>
+        <h1>
+            CSS - Cascading Style Sheet
+            <hr>
+        </h1>
+    </div>
+
+    <div class="bio">
+        <div class="header">Lorem, ipsum dolor.</div>
+        <div class="summary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat quisquam consectetur
+            reiciendis, maxime commodi quibusdam! Culpa nihil adipisci voluptatem totam et! Veniam, quam quaerat?</div>
+        <div class="detail">
+            <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quis ipsa, id porro
+                dolore assumenda iure cupiditate facilis, aperiam pariatur, velit atque mollitia minima magnam dolorem
+                itaque animi aut iste voluptatibus. Suscipit ad fugiat blanditiis pariatur eaque facilis a recusandae
+                quasi et reprehenderit laborum, velit architecto, sequi delectus repudiandae nostrum iusto commodi.
+                Tempore, eum sapiente!</div>
+        </div>
+    </div>
+    <br><br><br>
+    
+
+    <div>
+        <div class="box">Lorem ipsum dolor sit amet.</div>
+        <br><br><br>
+        <div class="box2"></div>
+        <br><br><br>
+
+        <span>Lorem, ipsum dolor.</span>
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus rem, quam animi quis molestiae repudiandae
+            porro <b>placeat ut, eaque ipsa numquam</b> et quia nisi, ipsam nemo exercitationem ex debitis nobis.</p>
+
+        <p class="sari-metin">Autem vitae incidunt rem ipsum placeat soluta delectus commodi! Pariatur asperiores ipsam,
+            est
+            iure dicta
+            necessitatibus tenetur voluptatibus perspiciatis fugiat non officia illum, quis facere molestiae dolorum ut
+            eaque tempora?</p>
+
+        <p class="sari-metin">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum repudiandae quibusdam,
+            ratione repellat illum
+            nesciunt totam fugiat, quae enim minus error impedit corrupti, adipisci labore sunt! Eum suscipit est ipsum.
+        </p>
+
+        <p id="p1">Sint pariatur quo dignissimos ducimus, veniam tempore nam, velit quia illo quasi rem magnam sapiente
+            omnis
+            quibusdam expedita facere. Libero eum nam doloribus optio, vel ab odio non. Fuga, incidunt!</p>
+    </div>
+
+</body>
+
+</html>

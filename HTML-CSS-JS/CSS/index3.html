@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- internal -->
+    <style>
+        @keyframes anim1 {
+            from {
+                background-color: blue;
+            }
+
+            to {
+                background-color: aqua;
+            }
+        }
+
+        @keyframes anim2 {
+            0% {
+                background-color: coral;
+            }
+
+            50% {
+                background-color: blue;
+            }
+
+            75% {
+                background-color: red;
+            }
+
+            100% {
+                background-color: yellow;
+            }
+        }
+
+
+        .box1 {
+            margin: 50px;
+            border: 4px solid red;
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            /* transition:all 0.5s; */
+        }
+
+        /* pseudo-class */
+        .box1:hover {
+            /* background-color: aquamarine;
+            width: 200px; */
+
+            /* transform: rotateY(180deg) ; */
+
+            /* transform: scaleX(1.2) scaleY(1.2);
+            box-shadow: 10px 10px 10px darkgray; */
+
+            /* transform: translateX(50px) translateY(50px); */
+
+            /* transform: skewX(20deg) skewY(30deg); */
+
+            animation-name: anim2;
+            animation-duration: 4s;
+            animation-delay: 1s;
+            animation-iteration-count: 2;
+            animation-direction:alternate;
+        }
+
+        .box1:active {
+            /* background-color: chartreuse;
+            width: 400px; */
+            /* transform: rotateY(60deg) ; */
+        }
+    </style>
+
+    <!-- external -->
+    <!-- <link rel="stylesheet"
+        href="style.css" /> -->
+
+</head>
+
+<body>
+    <!-- inline -->
+    <!-- style="border:4px solid red;padding:10px;font-size:12pt;" -->
+
+    <table>
+        <tr>
+            <td>
+                <div class="box1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, ut!</div>
+            </td>
+            <td>
+                <div class="box1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, ut!</div>
+            </td>
+            <td>
+                <div class="box1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, ut!</div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

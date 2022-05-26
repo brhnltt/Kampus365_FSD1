@@ -1,0 +1,12 @@
+$base-color: #3a18ce;
+$border-wid: 1px;
+$border-dark: rgba($base-color, 0.88);
+
+.alert {
+  border: $border-wid solid $border-dark;
+}
+
+.box {
+  background-color: $base-color;
+  border: $border-wid*4 solid $border-dark;
+}
