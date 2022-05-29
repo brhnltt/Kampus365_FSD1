@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="title"><b>DOM</b> Manipulation</p>
+    <hr>
+
+    <input id="txt" type="text" placeholder="write some things.." value="" />
+    <button type="button" onclick="addNewItem()">Add Item</button>
+
+    <ul id="list">
+        <li>abc</li>
+    </ul>
+
+    <script>
+        var el = document.getElementById("title");
+
+        console.log(el);
+        console.log(el.innerText);
+        console.log(el.innerHTML);
+
+        // el.innerText = "<i>DOM</i> Manipulation";
+        el.innerHTML = "<i>DOM</i> Manipulation";
+
+        function addNewItem(){
+            var ul = document.getElementById("list");
+
+            var li = document.createElement("li");  // <li></li>
+            var t = document.getElementById("txt");          
+            li.innerText = t.value; // <li>Murat</li>
+
+            ul.prepend(li);
+        }
+
+        
+    </script>
+</body>
+
+</html>

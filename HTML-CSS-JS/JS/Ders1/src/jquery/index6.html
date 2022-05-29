@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+
+    <script src="../../libs/jquery/jquery-3.6.0.js"></script>
+    <!-- <script src="../../libs/jquery/jquery-3.6.0.min.js"></script> -->
+
+    <style>
+        .item{
+            color:red
+        }
+
+        .item2{
+            color:blue;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 id="abc"><i>Learning</i> JQuery</h1>
+    <hr>
+
+    <input type="text" id="name">
+    <button id="btn" type="button">Add</button>
+    <button id="btn2" type="button">Set Attr</button>
+
+
+    <ul id="list">
+        <li class="item">Lorem, ipsum dolor.</li>
+        <li class="item">Ullam, ducimus! Iure!</li>
+        <li class="item">Aut, ipsa excepturi?</li>
+        <li class="item">Repellat, officiis atque!</li>
+    </ul>
+
+    <script>
+         var html = $("#abc").html();
+         var text = $("#abc").text();
+         var value = $("#name").val();
+
+        //  document.getElementById("btn").addEventListener("click",function(){
+        //     document.getElementsByTagName("h1")[0].innerText = "aaaaa";
+        //     //$("h1").text("aaaaa");
+        //  });
+
+        $("#btn").click(function(){
+            // $("h1").text("aaaaa");
+            // document.getElementsByTagName("h1")[0].innerText = "aaaaa";
+
+            var li = $("<li class='item'></li>");
+            var val = $("#name").val();
+            li.text(val);
+
+            $("#list").append(li);
+        });
+
+        $("#btn2").click(function(){
+            console.log($("#list li")[1]);
+
+            $($("#list li")[1]).attr("class","item2");
+        });
+
+        // Sayfa yüklendiğinde çalışacak fonksiyon tanımlama
+        $(function(){
+            // $("h1").text("murat");
+        });
+
+    </script>
+</body>
+</html>

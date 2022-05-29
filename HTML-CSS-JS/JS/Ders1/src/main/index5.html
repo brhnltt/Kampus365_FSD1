@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn1"
+        type="button"
+        onclick="btn1Click()">button 1</button>
+
+    <button id="btn2"
+        type="button" disabled>button 2</button>
+
+    <hr>
+    <div id="result">...</div>
+
+    <script>
+
+        // document.addEventListener("DOMContentLoaded", bodyOnLoad);
+        document.addEventListener("DOMContentLoaded", function(){
+            alert("Sayfa yüklendi 2");
+        });
+
+        function bodyOnLoad(){
+            alert("Sayfa yüklendi.");
+        }
+
+        function btn1Click() {
+            var b = document.getElementById("btn2");
+            b.addEventListener("click", customMethod);
+
+            b.removeAttribute("disabled");
+        }
+
+        function customMethod(){
+            document.getElementById("result").innerText = Date();
+            
+            var b = document.getElementById("btn2");
+            b.removeEventListener("click", customMethod);
+
+            b.setAttribute("disabled","disabled");
+        }
+    </script>
+</body>
+
+</html>

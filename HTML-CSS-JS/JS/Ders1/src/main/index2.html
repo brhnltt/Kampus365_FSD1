@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Javascript</h1>
+    <hr>
+
+    <script>
+        var metin = "Murat";
+        var sayi1 = 10;
+        var sayi2 = 1.2;
+        var secim = true;
+        var kucukBuyuk = "abc";
+
+        function writeAllInfo() {
+            // kodlar..
+        }
+
+        var kisi = {
+            name: "Murat",
+            age: 30,
+            active: true,
+            address: {
+                city: "istanbul",
+                postalCode: 80090
+            },
+            phones: ["5558887766", "5324446677"],
+            companies: [
+                {
+                    name: "comapney name 1",
+                    address: "asdsa ds dsa as dadsa"
+                },
+                {
+                    name: "comapney name 2",
+                    address: "qweqwew wqe qwewqewqewq"
+                }
+            ],
+            writeAllInfo: function (param1, param2) {
+                // kodlar..
+            }
+        };
+
+        // console.log(kisi);
+        // console.log(kisi.name);
+        // console.log(kisi.address.city);
+        // console.log(kisi.phones[0]);
+        // console.log(kisi.companies[1].name);
+        // console.log(kisi.writeAllInfo());
+
+        // var degisken = null;
+        // console.log(degisken);
+
+        console.log(kisi);
+
+        // debugger;
+        kisi.name = "Kadir Murat";
+        kisi.surname = "Başeren";
+
+        kisi.showAlert = function () {
+            alert("Heyoo");
+        };
+
+        console.log(kisi);
+        // kisi.showAlert();
+
+        // JS için uzun bir değişken tanımlama
+        var departmanaGoreAdaminUnvani = "dr.";
+    </script>
+</body>
+
+</html>
