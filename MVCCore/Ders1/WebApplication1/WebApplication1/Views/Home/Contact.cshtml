@@ -1,0 +1,52 @@
+﻿@model HomeIndexViewModel
+
+@{
+    string ad = "Murat";
+    string soyad = "Başeren";
+    string unvan = "En iyi .NET hocası";
+
+    Random random = new Random();
+    int rastgele = random.Next(1, 100);
+}
+
+<h1>Contact</h1>
+<p>
+    Justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu ac ante fusce non varius purus aenean nec magna felis fusce vestibulum velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis.
+</p>
+
+<p>
+    <span>Yazar : </span> @ad @soyad (@unvan)
+    <br />
+    <span>Rastgele Değer : @rastgele</span>
+    <br />
+    <span>Tarih : <b>@(DateTime.Now.ToLongDateString() + " günüdür")</b></span>
+</p>
+
+@{
+    List<string> cities = new List<string>();
+    cities.Add("İstanbul");
+    cities.Add("Ankara");
+    cities.Add("İzmir");
+    cities.Add("Adana");
+    cities.Add("Antalya");
+}
+
+<div class="row">
+    <div class="col">
+        <h1><i class="fa fa-home mr-2"></i>Samples</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <ul class="list-group">
+            
+            @foreach (string city in cities)
+            {
+               <li class="list-group-item">@city.ToUpper()</li>
+            }
+
+        </ul>
+    </div>
+</div>
