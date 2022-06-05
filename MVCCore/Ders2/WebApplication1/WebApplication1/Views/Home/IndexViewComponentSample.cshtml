@@ -1,0 +1,17 @@
+﻿
+
+<div class="row">
+    <div class="col">
+        <h1>Index - View Component</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        @await Component.InvokeAsync("Alert", new { type=AlertType.Danger, message="Hello World! rtyrtytr" })
+        @await Component.InvokeAsync("Alert", new { type=AlertType.Success, message="Hello World! werewr" })
+        @await Component.InvokeAsync("Alert", new { type=AlertType.Warning, message="Hello World! fdgdfg" })
+        @await Component.InvokeAsync("Alert", new { type=AlertType.Info, message="Hello World! asdas" })
+    </div>
+</div>

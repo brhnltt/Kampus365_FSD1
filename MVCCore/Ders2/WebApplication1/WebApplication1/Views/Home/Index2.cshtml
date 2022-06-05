@@ -1,0 +1,45 @@
+﻿@model Index2ViewModel
+
+<h1>Index 2</h1>
+<hr />
+
+<div>
+    @*<form>
+        <input type="text" value="@Model.Ad"  />
+        <input type="text" value="@Model.Soyad"  />
+        </form>*@
+
+    @using (Html.BeginForm("Index2Save", "Home", FormMethod.Post, new { data_info = "aaa" }))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Ad,"Adınız", new{ data_item="asdas" })
+            @Html.TextBoxFor(m => m.Ad, new { placeholder="John", @class="form-control", data_test="abc" })
+            <small class="form-text text-muted text-right">
+                Sit amet, consectetur.
+            </small>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Soyad,"Soyadınız")
+            @Html.TextBoxFor(m => m.Soyad, new{ placeholder="Doe", @class="form-control"})
+            <small class="form-text text-muted text-right">
+                Sit amet, consectetur.
+            </small>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Yas)
+            @Html.TextBoxFor(m => m.Yas, new{ placeholder="yaşınız", @class="form-control", type="number" })
+            <small class="form-text text-muted"></small>
+        </div>
+
+        <div class="form-group">
+            @Html.CheckBoxFor(m => m.Aktif)
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary btn-sm" type="submit">Gönder</button>
+        </div>
+    }
+
+</div>

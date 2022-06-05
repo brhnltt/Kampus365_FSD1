@@ -1,0 +1,50 @@
+﻿@model Index2ViewModel
+
+<div class="row">
+    <div class="col">
+        <h1>Index - Tag Helpers</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <form asp-action="Index2Save" asp-controller="Home" method="post" data-info="aaa">
+
+            <div class="form-group">
+                <label asp-for="Ad" data-item="asdas">Adınız</label>
+                <input asp-for="Ad" placeholder="John" class="form-control" data-test="abc" />
+                <small class="form-text text-muted text-right">
+                    Sit amet, consectetur.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Soyad">Soyadınız</label>
+                <input asp-for="Soyad" placeholder="Doe" class="form-control" />
+                <small class="form-text text-muted text-right">
+                    Sit amet, consectetur.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Yas">Yaşınız</label>
+                <input asp-for="Yas" placeholder="30" class="form-control" />
+                <small class="form-text text-muted text-right">
+                    Sit amet, consectetur.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="Aktif" /> Aktif
+            </div>
+
+            
+            <div class="form-group">
+                <button class="btn btn-primary btn-sm" type="submit">Gönder</button>
+            </div>
+
+        </form>
+    </div>
+</div>

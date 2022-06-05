@@ -1,0 +1,5 @@
+﻿@model AlertViewModel
+
+<div class="alert alert-@Model.MessageType.ToString().ToLowerInvariant()" role="alert">
+  @Model.Message
+</div>
