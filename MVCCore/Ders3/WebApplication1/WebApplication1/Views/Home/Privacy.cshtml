@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="row">
+    <div class="col">
+        <h1>@ViewData["Title"]</h1>
+        <p>Use this page to detail your site's privacy policy.</p>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <p>Lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel placerat suscipit, orci nisl iaculis eros, a tincidunt nisi odio eget lorem nulla condimentum tempor mattis ut vitae feugiat augue cras ut metus a risus iaculis scelerisque eu.</p>
+    </div>
+    <div class="col">
+        @*@await Component.InvokeAsync("CityList", new{clickable=true})*@
+        <vc:city-list clickable="false" has-title="false"></vc:city-list>
+    </div>
+    <div class="col">
+        <ul class="list-group">
+            @for (int i = 0; i < 3; i++)
+            {
+                <li class="list-group-item">
+                    <email mail="@NetworkData.GetEmail()" text="@NameData.GetFullName()"></email>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

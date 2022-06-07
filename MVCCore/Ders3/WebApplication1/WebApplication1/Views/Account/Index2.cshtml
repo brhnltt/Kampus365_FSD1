@@ -1,0 +1,38 @@
+﻿@{
+    List<string> cities = (List<string>)ViewData["cityList"];
+    List<string> countries = (List<string>)ViewBag.CountryList;
+}
+
+<div class="row mb-3">
+    <div class="col">
+        <h2>Index 2</h2>
+        <hr />
+
+        <a asp-action="Index3">Go to Index3</a><br /><br />
+        @*@TempData["custom"]?.ToString()*@
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h2>Cities</h2>
+        <hr />
+@*        <ul>
+            @foreach (var item in cities)
+            {
+                <li>@item</li>
+            }
+        </ul>*@
+    </div>
+
+    <div class="col">
+        <h2>Countries</h2>
+        <hr />
+ @*       <ul>
+            @foreach (var item in countries)
+            {
+                <li>@item</li>
+            }
+        </ul>*@
+    </div>
+</div>

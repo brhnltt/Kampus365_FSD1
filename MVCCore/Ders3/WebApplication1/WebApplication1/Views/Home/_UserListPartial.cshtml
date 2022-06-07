@@ -1,0 +1,32 @@
+﻿@model List<string>
+
+
+@if (Model != null)
+{
+    <div class="alert alert-warning mb-3">Controller içinde Model ile veri yüklemesi yapıldı.</div>
+
+    <ul class="list-group">
+        @foreach (string item in Model)
+        {
+            <li class="list-group-item">
+                @item
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <div class="alert alert-info mb-3">Sayfa içinde Razor ile veri yüklemesi yapıldı.</div>
+
+    <ul class="list-group">
+        @for (var i = 0; i < NumberData.GetNumber(6, 20); i++)
+        {
+            <li class="list-group-item">
+                @NameData.GetCompanyName()
+            </li>
+        }
+    </ul>
+}
+
+
+

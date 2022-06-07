@@ -1,0 +1,16 @@
+﻿@model bool
+
+@if (Model == true)
+{
+    <h2>City List</h2>
+    <hr />
+}
+
+<div class="list-group">
+    @for (var i = 0; i < NumberData.GetNumber(4, 8); i++)
+    {
+        <a class="list-group-item list-group-item-action">
+            @PlaceData.GetCity()
+        </a>
+    }
+</div>
