@@ -1,0 +1,20 @@
+﻿<div class="row">
+    <div class="col">
+        <h1>Course Page</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <a asp-action="Index" asp-controller="Student">Öğrenci sayfasına git</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div>id : @ViewContext.RouteData.Values.GetValueOrDefault("id")</div>
+        <div>sid : @ViewContext.RouteData.Values.GetValueOrDefault("sid")</div>
+    </div>
+</div>
+

@@ -1,0 +1,64 @@
+﻿@model Person
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .validation-summary-errors ul {
+        list-style-type: none;
+        padding:0;
+    }
+
+    .validation-summary-errors ul li {
+        border:1px solid red;
+        background-color:orangered;
+        color:#fff;
+        padding:5px;
+        margin-bottom:5px;
+    }
+</style>
+
+
+<form asp-action="Index" asp-controller="Home" method="post">
+    <div class="mb-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" placeholder="John" />
+        <span asp-validation-for="Name" class="text-danger small"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Surname" class="form-label"></label>
+        <input asp-for="Surname" class="form-control" placeholder="Doe" />
+        <span asp-validation-for="Surname" class="text-danger small"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Age" class="form-label"></label>
+        <input asp-for="Age" class="form-control" placeholder="18" />
+        <span asp-validation-for="Age" class="text-danger small"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" class="form-control" placeholder="johndoe" />
+        <span asp-validation-for="Username" class="text-danger small"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" placeholder="john@doe.com" />
+        <span asp-validation-for="Email" class="text-danger small"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control" placeholder="******" />
+        <span asp-validation-for="Password" class="text-danger small"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="RePassword" class="form-label"></label>
+        <input asp-for="RePassword" class="form-control" placeholder="******" />
+        <span asp-validation-for="RePassword" class="text-danger small"></span>
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+</form>

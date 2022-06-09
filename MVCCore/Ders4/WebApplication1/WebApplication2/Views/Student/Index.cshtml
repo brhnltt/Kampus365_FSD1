@@ -1,0 +1,51 @@
+﻿@model List<Student>
+
+<div class="row mb-3">
+    <div class="col">
+        <h1>Students</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col text-end">
+        <a asp-action="Create" class="btn btn-primary btn-sm">Create New Student</a>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col">
+        @if (Model == null || Model.Count == 0)
+        {
+            <div class="alert alert-info">Herhangi bir öğrenci kaydı bulunmuyor.</div>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name Surname</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Student stu in Model)
+                    {
+                        <tr>
+                            <td>@stu.NameSurname</td>
+                            <td>@stu.Username</td>
+                            <td>@stu.Password</td>
+                            <td class="text-end">
+                                <a href="#" class="btn btn-warning btn-sm me-2">Edit</a>
+                                <a href="#" class="btn btn-info btn-sm me-2">Details</a>
+                                <a href="#" class="btn btn-danger btn-sm me-2">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

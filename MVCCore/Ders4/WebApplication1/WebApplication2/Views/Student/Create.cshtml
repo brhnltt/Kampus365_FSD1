@@ -1,0 +1,40 @@
+﻿@model StudentCreateViewModel
+
+<div class="row mb-3">
+    <div class="col">
+        <h1>Create New Student</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <form method="post">
+            <div class="mb-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NameSurname" class="form-label"></label>
+                <input asp-for="NameSurname" class="form-control" placeholder="John Doe" />
+                <span asp-validation-for="NameSurname" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label"></label>
+                <input asp-for="Username" class="form-control" placeholder="johndoe" />
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" placeholder="******" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="RePassword" class="form-label"></label>
+                <input asp-for="RePassword" class="form-control" placeholder="******" />
+                <span asp-validation-for="RePassword" class="text-danger small"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Create</button>
+        </form>
+    </div>
+</div>

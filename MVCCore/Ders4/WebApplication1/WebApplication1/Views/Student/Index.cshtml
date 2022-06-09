@@ -1,0 +1,20 @@
+﻿@model Person
+
+<div class="row">
+    <div class="col">
+        <h1>Student Page</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <a asp-action="Index" asp-controller="Course" asp-route-ad="Murat" asp-route-soyad="Başeren" asp-route-id="3" asp-route-sid="5">
+            Kurs sayfasına git
+        </a>
+    </div>
+</div>
+
+
+
+http://localhost:5145/Course/Index/3/5?ad=Murat&soyad=Ba%C5%9Feren
