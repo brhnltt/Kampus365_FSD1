@@ -1,4 +1,4 @@
-﻿@model List<Student>
+﻿@model List<StudentViewModel>
 
 <div class="row mb-3">
     <div class="col">
@@ -9,7 +9,7 @@
 
 <div class="row mb-3">
     <div class="col text-end">
-        <a asp-action="Create" class="btn btn-primary btn-sm">Create New Student</a>
+        <a asp-action="Create" class="btn btn-primary btn-sm"><i class="fa fa-plus me-2"></i>Create New Student</a>
     </div>
 </div>
 
@@ -24,23 +24,41 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Name Surname</th>
                         <th>Username</th>
-                        <th>Password</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (Student stu in Model)
+                    @foreach (StudentViewModel stu in Model)
                     {
                         <tr>
+                            <td>@stu.Id</td>
                             <td>@stu.NameSurname</td>
                             <td>@stu.Username</td>
-                            <td>@stu.Password</td>
                             <td class="text-end">
-                                <a href="#" class="btn btn-warning btn-sm me-2">Edit</a>
-                                <a href="#" class="btn btn-info btn-sm me-2">Details</a>
-                                <a href="#" class="btn btn-danger btn-sm me-2">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@stu.Id" class="btn btn-warning btn-sm me-2">
+                                    <i class="fa fa-edit me-2"></i>Edit
+                                </a>
+                                @*<a asp-action="Details" asp-route-id="@stu.Id" class="btn btn-info btn-sm me-2">
+                        <i class="fa fa-search me-2"></i>Details
+                        </a>*@
+                                <a data-bs-toggle="modal" data-bs-target="#mymodal" onclick="loadStudentDetails(@stu.Id)" class="btn btn-info btn-sm me-2">
+                                    <i class="fa fa-search me-2"></i>Details
+                                </a>
+
+                                <a data-bs-toggle="modal" data-bs-target="#mymodalpass" onclick="loadStudentChangePassPartial(@stu.Id)" class="btn btn-secondary btn-sm me-2">
+                                    <i class="fa-solid fa-key me-2"></i>Edit Password
+                                </a>
+
+                                @*<a data-bs-toggle="modal" data-bs-target="#mymodalpass2" onclick="loadStudentChangePassPartial2(@stu.Id)" class="btn btn-secondary btn-sm me-2">
+                                    <i class="fa-solid fa-key me-2"></i>Edit Password
+                                </a>*@
+                                
+                                <a asp-action="Delete" asp-route-id="@stu.Id" class="btn btn-danger btn-sm me-2">
+                                    <i class="fa fa-trash me-2"></i>Delete
+                                </a>
                             </td>
                         </tr>
                     }
@@ -49,3 +67,107 @@
         }
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="mymodal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Student Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="mymodalpass" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Change Student Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" data-bs-dismiss="modal" form="passform"><i class="fa fa-save me-2"></i>Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="mymodalpass2" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Change Student Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <form id="passform" method="post" action="/Student/ChangePassword">
+                            @*<input id="studentid" name="id" type="hidden" value="1" />*@
+
+                            <div class="mb-3">
+                                <label class="form-label" for="Password">Password</label>
+                                <input class="form-control" placeholder="******" type="password" id="Password" name="Password">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="RePassword">Re-Password</label>
+                                <input class="form-control" placeholder="******" type="password" id="RePassword" name="RePassword">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" data-bs-dismiss="modal" form="passform"><i class="fa fa-save me-2"></i>Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script>
+        // /Student/GetDetails
+
+        function loadStudentDetails(studentid) {
+            var url = '@Url.Action("GetDetailsPartial","Student")' + '/' + studentid;
+            // örn;  /Student/GetDetailsPartial/2
+
+            $("#mymodal .modal-body").load(url);
+        }
+
+        function loadStudentChangePassPartial(studentid) {
+            var url = '@Url.Action("GetChangePassPartial","Student")' + '/' + studentid;
+            // örn;  /Student/GetChangePassPartial/2
+
+            $("#mymodalpass .modal-body").load(url);
+        }
+
+        function loadStudentChangePassPartial2(studentid) {
+            // form action değiştirme
+            $("#mymodalpass2 #passform").attr('action','@Url.Action("ChangePassword","Student")' + '/' + studentid);
+
+            // form içindeki input u değiştirme
+            //$("#mymodalpass2 #studentid").val(studentid);
+        }
+    </script>
+}

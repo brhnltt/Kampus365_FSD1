@@ -1,0 +1,20 @@
+﻿@model StudentViewModel
+
+<div class="row">
+    <div class="col">
+        <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="my-3">
+            <dl class="row">
+                <dt class="col-4"><label asp-for="NameSurname"></label></dt>
+                <dd class="col-8">@Model.NameSurname</dd>
+                <dt class="col-4"><label asp-for="Username"></label></dt>
+                <dd class="col-8">@Model.Username</dd>
+            </dl>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@model StudentChangePassViewModel
+
+<div class="row">
+    <div class="col">
+        <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form id="passform" asp-action="ChangePassword" asp-controller="Student" asp-route-id="@Model.Id" method="post">
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">Password</label>
+                <input asp-for="Password" class="form-control" placeholder="******" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="RePassword" class="form-label">Re-Password</label>
+                <input asp-for="RePassword" class="form-control" placeholder="******" />
+                <span asp-validation-for="RePassword" class="text-danger small"></span>
+            </div>
+        </form>
+    </div>
+</div>
