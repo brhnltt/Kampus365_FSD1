@@ -1,0 +1,43 @@
+﻿@model ProfileViewModel
+
+<div class="row">
+    <div class="col">
+        <h1>Profile</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-sm-4">
+
+        <form method="post" enctype="multipart/form-data">
+
+            @if (Model.FileName != null)
+            {
+                <div class="form-group mb-3">
+                    <img class="img-fluid img-thumbnail" src="~/imgs/@Model.FileName" />
+                </div>
+            }
+
+            <div class="form-group mb-3">
+                <label asp-for="Picture" class="form-label">Profil Resminiz</label>
+                <input asp-for="Picture" type="file" class="form-control" />
+            </div>
+
+            @if (string.IsNullOrEmpty(Model.Message) == false)
+            {
+                <div class="form-group mb-3">
+                    <div class="alert alert-@(Model.HasError ? "danger" : "success")">
+                        @Model.Message
+                    </div>
+                </div>
+            }
+
+
+            <div class="form-group mb-3">
+                <button type="submit" class="btn btn-primary">Gönder</button>
+            </div>
+        </form>
+
+    </div>
+</div>

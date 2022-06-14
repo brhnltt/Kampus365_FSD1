@@ -1,0 +1,40 @@
+﻿@model SurveyViewModel
+
+<div class="row">
+    <div class="col">
+        <h1>Survey</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-sm-4">
+        <form method="post">
+            <div class="form-group mb-3">
+                <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Surname" class="form-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Age" class="form-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <button type="submit" class="btn btn-primary">Gönder</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
