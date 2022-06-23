@@ -1,0 +1,51 @@
+﻿@page
+@model WebApplication1.Pages.AjaxTestModel
+
+<div class="row">
+    <div class="col">
+        <button id="btn" type="button" class="btn btn-primary">Load Data</button>
+        <div id="result" class="mt-3">
+
+        </div>
+        <div class="mt-3">
+            <ul id="list" class="list-group">
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $("#btn").click(function() {
+            var res = $("#result");
+            res.empty();
+
+            var ul = $("#list");
+            ul.empty();
+            ul.append($("<li class='list-group-item'><i class='fa fa-sync fa-spin me-2'></i>loading..</li>"));
+
+            var b = $(this);
+            b.attr("disabled","disabled");
+
+            $.get("/AjaxTest?handler=GetData")
+                .done(function(data) {
+
+                    ul.empty();
+                   
+                    for (var i = 0; i < data.length; i++) {
+                        var item = data[i];
+                        var li = $("<li class='list-group-item'></li>");
+                        li.text(item);
+
+                        ul.append(li);
+                    }
+
+                    b.removeAttr("disabled");
+                })
+                .fail(function() {
+                    var el = $("<div class='alert alert-danger'>Hata oluştu.</div>");
+                    res.append(el);
+                });
+        });
+    </script>
+}
