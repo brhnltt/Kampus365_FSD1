@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication2.Common\WebApplication2.Common.csproj" />
+    <ProjectReference Include="..\WebApplication2.DataAccess\WebApplication2.DataAccess.csproj" />
+    <ProjectReference Include="..\WebApplication2.Entities\WebApplication2.Entities.csproj" />
+    <ProjectReference Include="..\WebApplication2.Models\WebApplication2.Models.csproj" />
+  </ItemGroup>
+
+</Project>
